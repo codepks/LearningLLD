@@ -2,7 +2,7 @@
 
 # Parking Lot
 
-```
+
 /*
 * Elements to work with
 * 1. Vehicles : types :  Heavy vehicles, buses, SUVs, cars, bikes
