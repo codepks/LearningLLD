@@ -27,9 +27,9 @@
 *
 */
 
-c
-////===============================Parking lot singleton class//===============================
 
+////===============================Parking lot singleton class//===============================
+```
 class ParkingLot{
 public:
 
