@@ -27,8 +27,7 @@
 *
 */
 
-```
-
+c
 ////===============================Parking lot singleton class//===============================
 
 class ParkingLot{
@@ -48,10 +47,13 @@ private:
 };
 
 ParkingLot ParkingLot::parkingLot_;
+```
+
 
 
 //===============================Interface class for vehicle===============================
 
+```
 class IVehicle
 {
 public:
@@ -88,9 +90,11 @@ public:
 
 	std::string getType() override { return "Bike";	}
 };
-
+```
 
 //===============================Payment Processors===============================
+
+```
 class PaymentProcessor
 {
 public:
@@ -131,9 +135,10 @@ public:
 
 	void Process() override { printf("Processing Wallet"); }
 };
-
+```
 //===============================Payment Processors===============================
 
+```
 //================================================================================
 int main(){
 	ParkingLot &mA = ParkingLot::getParkingLotInstance();
