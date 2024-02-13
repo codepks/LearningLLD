@@ -35,8 +35,7 @@
 class ParkingLot{
 public:
 
-	static ParkingLot& getParkingLotInstance()
-	{
+	static ParkingLot& getParkingLotInstance()	{
 		return parkingLot_;
 	}
 	
@@ -47,14 +46,12 @@ private:
 	ParkingLot(const ParkingLot& obj) = delete;
 
 	static ParkingLot parkingLot_;
-
 };
 
 ParkingLot ParkingLot::parkingLot_;
 
 
-int main()
-{
+int main(){
 	ParkingLot &mA = ParkingLot::getParkingLotInstance();
 }
 
