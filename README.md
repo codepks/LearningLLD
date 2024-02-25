@@ -7,7 +7,7 @@
 1. Application Layer : HTTP
 2. Transport Layer : TCP
 
-========Application Layer==========
+ > Application Layer
 Client Server Protocol:
 1. HTTP : Unidirectional : client sends request and server sends response
 2. FTP
@@ -18,7 +18,7 @@ Peer to Peer
 WebRTC : Client can talk to server, server to client and client to client. Uses UDP.
 
 
-========Transport Layer==========
+> Transport Layer
 TCP : The packets are send and acknowledgement is received. If it is not recieved then that packet is sent back. Ordering of packets is there.
 
 UDP : No acknowledgement and ordering but it is fast. Used in case of video calling.
