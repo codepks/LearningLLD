@@ -191,9 +191,18 @@ USA's traffic can find their data in India's data due to data replication.
 
 **Messaging Queue**
 
+Application servers can queue their message to let their subscriber services use it.
+In case of failure the data can be retrieved from requeue.
+
 **Database Scaling**
 
+Two types:
+1. Vertical : Increase the power and capability of the servers, but there's a limit to it
+2. Horizontal : Sharding
 
+*Sharding*
+1. Horizontal Sharding : Different rows of data table can be distributed R1 - R100, R101 - R200. Columns would be same across. This is a better option
+2. Vertical Sharding : We will do division based on Columns.
 
 
 source : https://youtu.be/rExh5cPMZcI?si=n9FejS8rNdHguw31
