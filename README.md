@@ -169,6 +169,16 @@ If data not found on Cache then DB is queried.
                                       <--> ( Master database_server + Slave  database_server)*
 
 **CDN**
+*Content Delivery Network*
+CND can do caching and has other functionalities too.
+In case of scaling to different countries, your local server might have more latency for far off countries.
+In such cases we will put CDN nodes local to other countries which will provide Caching service to static data like HTML pages, video , CSS pages etc.
+
+If a country's CDN node is unable to find the requested data then it searches for it in the nearby CND node.
+If it is not found there also then it will request the original server.
+
+*client <--> Load_balancer <--> (Appliation server1 + server 2 .. server N) <--> Cache
+                                      <--> ( Master database_server + Slave  database_server + CND Nodes)*
 
 **Data Center**
 
