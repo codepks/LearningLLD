@@ -53,6 +53,7 @@ source : https://www.youtube.com/watch?v=3qRBeZsUa18&list=PL6W8uoQQ2c63W58rpNFDw
 
 There are two types of architecture: Monolithic and Microservices
 
+### Microservices part-1
 **Monolithic** : All end to end functionalities are available in one architecture only. Sometime such architectures are legacy softwares.
 Issues with it:
 1. It overloads IDE and IDE becomes slow as the size of code is too huge
@@ -95,6 +96,8 @@ Different phases of Microservices creation
 2. Domain driven design : Divide application into domains which can be divided into microservices in it. For e.g. Payment is a domain which can have microservices like forward payment, reverse payment (refund)
 
 source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
+
+### Microservices part-2
 
 # Parking Lot
 
