@@ -94,8 +94,6 @@ Different phases of Microservices creation
 1. Business capability - order management, product management, account management, billing etc like MS's
 2. Domain driven design : Divide application into domains which can be divided into microservices in it. For e.g. Payment is a domain which can have microservices like forward payment, reverse payment (refund)
 
-source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
-
 **Strangler Pattern**
 This is basically used for refactoring a monolithic service to a microservice.
 We start building micorservice and start strangulating the monolithic service by reducing the API traffic one by one until our microservice is ready.
@@ -104,6 +102,7 @@ We start building micorservice and start strangulating the monolithic service by
 
 **CQRS Pattern**
 
+source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
 # Parking Lot
 
