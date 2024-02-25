@@ -130,9 +130,18 @@ source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
 ## Scaling from Zero to Million
 
-**Single Server**
+**Single Server** 
+
+A very naive project would have a application and db in a single server catering to a client. This method is non-scalable.
+
+client <--> (application_server + databse_server)
 
 **Application & DB Server Application**
+
+The next step to above is DB server and application server separation.
+So now you have a client, connected to an Application server which in turn is connected to a database server.
+
+client <--> application_server <--> databse_server
 
 **Load Balancer + Multiple app servers**
 
