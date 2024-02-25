@@ -8,20 +8,22 @@
 2. Transport Layer : TCP
 
 > Application Layer
-Client Server Protocol:
+
+**Client Server Protocol:**
 1. HTTP : Unidirectional : client sends request and server sends response
 2. FTP
 3. SMTP
 4. Web Sockets : Bidirectionals : client and server both can send request and get response. Generally used in case of messaging apps like whatsapp. SErver also keeps on querying for messages from the client
 
-Peer to Peer
+**Peer to Peer**
 WebRTC : Client can talk to server, server to client and client to client. Uses UDP.
 
 
 > Transport Layer
-TCP : The packets are send and acknowledgement is received. If it is not recieved then that packet is sent back. Ordering of packets is there.
 
-UDP : No acknowledgement and ordering but it is fast. Used in case of video calling.
+**TCP** : The packets are send and acknowledgement is received. If it is not recieved then that packet is sent back. Ordering of packets is there.
+
+**UDP** : No acknowledgement and ordering but it is fast. Used in case of video calling.
 
 
 ## CAP Thoeram
@@ -51,14 +53,14 @@ source : https://www.youtube.com/watch?v=3qRBeZsUa18&list=PL6W8uoQQ2c63W58rpNFDw
 
 There are two types of architecture: Monolithic and Microservices
 
-Monolithic : All end to end functionalities are available in one architecture only. Sometime such architectures are legacy softwares.
+**Monolithic** : All end to end functionalities are available in one architecture only. Sometime such architectures are legacy softwares.
 Issues with it:
 1. It overloads IDE and IDE becomes slow as the size of code is too huge
 2. Scaling is very hard
 3. Tight coupled application
 4. Even in small changes all the code needs to be retested
 
-Microservices:
+**Microservices**:
 The best way to modularize your code like, they are loosely coupled too :
 1. Product service
 2. Order service
