@@ -47,7 +47,7 @@ AP : The system is available with partition tolerance but consistency wouldn't b
 What would you tradeoff between C, A, and P
 We cannot tradeoff with Partition, we can only tradeoff between consistency and availability.
 
-source : https://www.youtube.com/watch?v=3qRBeZsUa18&list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7&index=3
+source : https://youtu.be/3qRBeZsUa18?si=5YRJHl9rdpYwts2E
 
 ## Microservices
 
