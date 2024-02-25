@@ -101,8 +101,21 @@ We start building micorservice and start strangulating the monolithic service by
 
 **SAGA Pattern**
 
+*Sequence of Local Transaction*
 It is use for database management.
 Suppose different microservices are using different databases but there is one type of transaction that uses all these three databases, to manage such case we use saga pattern by still maintaining ACID property of each database.
+
+Caution : No service can query other services's DB.
+Different services can have different types of DB, could be SQL and no-SQL etc.
+
+*Example*
+MS1 : Order, MS2 : Inventory , MS3 : Payment
+Suppose trasaction passes MS1, MS2 but fails at MS3.
+As per ACID property, either all should pass or none. It should roll back (MS2 and MS1 should roll back).
+
+*Solutin*
+All the services would be linked by event handling, once any of the transaction fails, it sends back event of failure to the previous microservice to roll back.
+
 
 **CQRS Pattern**
 
