@@ -57,7 +57,40 @@ Issues with it:
 2. Scaling is very hard
 3. Tight coupled application
 4. Even in small changes all the code needs to be retested
-5. 
+
+Microservices:
+The best way to modularize your code like, they are loosely coupled too :
+1. Product service
+2. Order service
+3. Billing service
+4. etc
+
+A bug can be resolved in that particular module and tested.
+Component level scaling is also good.
+
+Disadvantages:
+1. If they are not loosely coupled then there would be too much communication involved
+2. There could be latency issue
+3. The dependent components need to be monitored
+
+
+
+Different phases of Microservices creation
+> Decomposition
+1. Decompose by business capability
+2. Decompose by subdomain
+
+> Database
+1. Would you have separate database for each service or common for all
+
+> Communication
+1. API communication
+2. via Events
+
+> Integration
+1. These microservices need to be integrated to the services like UI
+
+
 
 
 
