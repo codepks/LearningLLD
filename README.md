@@ -75,8 +75,6 @@ Disadvantages:
 2. There could be latency issue
 3. The dependent components need to be monitored
 
-
-
 Different phases of Microservices creation
 > Decomposition
 1. Decompose by business capability
@@ -92,12 +90,11 @@ Different phases of Microservices creation
 > Integration
 1. These microservices need to be integrated to the services like UI
 
+**Decomposition Pattern**
+1. Business capability - order management, product management, account management, billing etc like MS's
+2. Domain driven design : Domains can have microservices in it. For e.g. Payment is a domain which can have microservices like forward payment, reverse payment (refund)
 
-
-
-
-
-https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
+source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
 # Parking Lot
 
