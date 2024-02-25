@@ -169,18 +169,25 @@ If data not found on Cache then DB is queried.
                                       <--> ( Master database_server + Slave  database_server)*
 
 **CDN**
+
 *Content Delivery Network*
-CND can do caching and has other functionalities too.
 In case of scaling to different countries, your local server might have more latency for far off countries.
+CND can do caching and has other functionalities too.
 In such cases we will put CDN nodes local to other countries which will provide Caching service to static data like HTML pages, video , CSS pages etc.
 
 If a country's CDN node is unable to find the requested data then it searches for it in the nearby CND node.
 If it is not found there also then it will request the original server.
+CND is also secure making original server reach farther.
+Client request goes to CDN first before going to load balancer
 
-*client <--> Load_balancer <--> (Appliation server1 + server 2 .. server N) <--> Cache
-                                      <--> ( Master database_server + Slave  database_server + CND Nodes)*
+*client <-->  Load_balancer <--> CDN Nodes <--> (Appliation server1 + server 2 .. server N) <--> Cache
+                                      <--> ( Master database_server + Slave  database_server)*
 
 **Data Center**
+
+This is again multiple countries based. The load balancer would be at international level.
+Suppose you have entire setup as above in India and USA and USA's server fails then the entire traffic of USA would be diverted to India's  by the load balancer.
+USA's traffic can find their data in India's data due to data replication.
 
 **Messaging Queue**
 
@@ -189,6 +196,7 @@ If it is not found there also then it will request the original server.
 
 
 
+source : https://youtu.be/rExh5cPMZcI?si=n9FejS8rNdHguw31
 
 
 # Low Level Design
