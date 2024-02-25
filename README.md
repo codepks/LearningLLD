@@ -95,12 +95,19 @@ Different phases of Microservices creation
 2. Domain driven design : Divide application into domains which can be divided into microservices in it. For e.g. Payment is a domain which can have microservices like forward payment, reverse payment (refund)
 
 **Strangler Pattern**
+
 This is basically used for refactoring a monolithic service to a microservice.
 We start building micorservice and start strangulating the monolithic service by reducing the API traffic one by one until our microservice is ready.
 
 **SAGA Pattern**
 
+It is use for database management.
+Suppose different microservices are using different databases but there is one type of transaction that uses all these three databases, to manage such case we use saga pattern by still maintaining ACID property of each database.
+
 **CQRS Pattern**
+
+Suppose DB1 of MS1 has table 1-5, DB2 of MS2 has table 6-10,DB3 of MS3 has table 11-15.
+There is query which utilizes table 6 of DB2 and table 12 of DB3. The join operation of query is handled by this pattern.
 
 source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
