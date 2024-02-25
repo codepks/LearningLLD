@@ -122,6 +122,8 @@ All the services would be linked by event handling, once any of the transaction 
 Suppose DB1 of MS1 has table 1-5, DB2 of MS2 has table 6-10,DB3 of MS3 has table 11-15.
 There is query which utilizes table 6 of DB2 and table 12 of DB3. The join operation of query is handled by this pattern.
 
+This DB will have a common DB which will have data of all smaller DBs from different services, but this DB will have only read services and will be updated based on event linking from different services.
+
 source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
 # Parking Lot
