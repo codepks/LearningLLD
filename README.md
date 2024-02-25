@@ -128,25 +128,20 @@ source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
 # Parking Lot
 
+Elements to work with
+1. Vehicles : types :  Heavy vehicles, buses, SUVs, cars, bikes
+2. Payment mode : UPI, CC, DB, Wallet
+3. Strategy
+4. Printers
+5. CCTVs
+6. Terminals
+7. Parking ticket
 
-/*
-* Elements to work with
-* 1. Vehicles : types :  Heavy vehicles, buses, SUVs, cars, bikes
-* 2. Payment mode : UPI, CC, DB, Wallet
-* 3. Strategy
-* 4. Printers
-* 5. CCTVs
-* 6. Terminals
-* 7. Parking ticket
-*
-*  =======================Class Design===========================
-*	Parking lot would be a singleton class
-*
-*	Elements like payment processors, strategy class,
-*	printers, terminals would be a coming from factory class
-*
-*	CCTVs would be under the observer class to notify in ase of issue
-*
-*	Vechiles would be coming from the factory class
-*/
+  **Class Design**
+1. Parking lot would be a singleton class
+2.  Elements like payment processors, strategy class,
+3.  printers, terminals would be a coming from factory class
+4.  CCTVs would be under the observer class to notify in ase of issue
+5.  Vechiles would be coming from the factory class
+  
 
