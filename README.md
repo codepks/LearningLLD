@@ -128,7 +128,29 @@ source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
 # System Design
 
-## Scaling from Zero to Milltion
+## Scaling from Zero to Million
+
+**Single Server**
+
+**Application & DB Server Application**
+
+**Load Balancer + Multiple app servers**
+
+**Database replication**
+
+**Cache**
+
+**CDN**
+
+**Data Center**
+
+**Messaging Queue**
+
+**Database Scaling**
+
+
+
+
 
 
 # Low Level Design
