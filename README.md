@@ -7,7 +7,7 @@
 1. Application Layer : HTTP
 2. Transport Layer : TCP
 
- > Application Layer
+> Application Layer
 Client Server Protocol:
 1. HTTP : Unidirectional : client sends request and server sends response
 2. FTP
