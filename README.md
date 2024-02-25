@@ -158,9 +158,15 @@ In case our Master DB fails, then one of the slave DB would promote  itseld to b
 
 *client <--> Load_balancer <--> (Appliation server1 + server 2 .. server N) 
                                       <--> ( Master database_server + Slave  database_server)*
-
                                       
 **Cache**
+
+Application server directly doing DB operation everytime can be expensive.
+We can introduce Cache which is checked by Application servers before querying the DB servers.
+If data not found on Cache then DB is queried.
+
+*client <--> Load_balancer <--> (Appliation server1 + server 2 .. server N) <--> Cache
+                                      <--> ( Master database_server + Slave  database_server)*
 
 **CDN**
 
