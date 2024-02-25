@@ -134,18 +134,28 @@ source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
 A very naive project would have a application and db in a single server catering to a client. This method is non-scalable.
 
-client <--> (application_server + databse_server)
+*client <--> (application_server + databse_server)*
 
 **Application & DB Server Application**
 
 The next step to above is DB server and application server separation.
 So now you have a client, connected to an Application server which in turn is connected to a database server.
 
-client <--> application_server <--> databse_server
+*client <--> application_server <--> databse_server*
 
 **Load Balancer + Multiple app servers**
 
+Here we will have load balancer to manager the client request traffic to different servers.
+Load balancer brings security as it communicates privately to app servers.
+
+client <--> Load_balancer <--> (Appliation server1 + server 2 .. server N) <--> database_server
+
 **Database replication**
+
+In case of database scaling we have Master DB and Slave DB (replicas of Master DB) concept being used here.
+We generally perform the write operation in master DB and read operation from the slave DB.
+In case our Master DB fails, then one of the slave DB would promote  itseld to be the master DB.
+
 
 **Cache**
 
