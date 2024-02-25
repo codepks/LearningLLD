@@ -124,7 +124,7 @@ There is query which utilizes table 6 of DB2 and table 12 of DB3. The join opera
 
 This DB will have a common DB which will have data of all smaller DBs from different services, but this DB will have only read services and will be updated based on event linking from different services.
 
-source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
+source: https://youtu.be/l1OCmsBnQ3g?si=yPN1TWhqxDNve9_B
 
 # System Design
 
