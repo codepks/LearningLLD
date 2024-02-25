@@ -126,7 +126,13 @@ This DB will have a common DB which will have data of all smaller DBs from diffe
 
 source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
-# Parking Lot
+# System Design
+
+## Scaling from Zero to Milltion
+
+
+# Low Level Design
+## Parking Lot
 
 Elements to work with
 1. Vehicles : types :  Heavy vehicles, buses, SUVs, cars, bikes
