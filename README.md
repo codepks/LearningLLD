@@ -53,7 +53,6 @@ source : https://www.youtube.com/watch?v=3qRBeZsUa18&list=PL6W8uoQQ2c63W58rpNFDw
 
 There are two types of architecture: Monolithic and Microservices
 
-### Microservices part-1
 **Monolithic** : All end to end functionalities are available in one architecture only. Sometime such architectures are legacy softwares.
 Issues with it:
 1. It overloads IDE and IDE becomes slow as the size of code is too huge
@@ -97,7 +96,14 @@ Different phases of Microservices creation
 
 source: https://youtu.be/l1OCmsBnQ3g?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
 
-### Microservices part-2
+**Strangler Pattern**
+This is basically used for refactoring a monolithic service to a microservice.
+We start building micorservice and start strangulating the monolithic service by reducing the API traffic one by one until our microservice is ready.
+
+**SAGA Pattern**
+
+**CQRS Pattern**
+
 
 # Parking Lot
 
