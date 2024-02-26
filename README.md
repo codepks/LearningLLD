@@ -17,7 +17,6 @@
 **Peer to Peer**
 WebRTC : Client can talk to server, server to client and client to client. Uses UDP.
 
-
 > Transport Layer
 
 **TCP** : The packets are send and acknowledgement is received. If it is not recieved then that packet is sent back. Ordering of packets is there.
@@ -304,4 +303,19 @@ Elements to work with
 4.  CCTVs would be under the observer class to notify in ase of issue
 5.  Vechiles would be coming from the factory class
   
+
+## Meeting Scheduler
+
+**Problem Statement**
+Design a Meeting Scheduler where you need to book a meeting room for a given time period for given attendees(optional) and block the room in room's calender.
+
+**Process Flow**
+1. A user enters given time and day and capacity of a meeting in a meeting scheduler
+2. Meeting Scheduler talks to Meeting Room manager holding the properties of different rooms and return the list of rooms accordingly
+3. User choses the room being dummy in nature with properties like location and capacity gets choses by Meeting Scheduler and blocks the room in the meeting room calender.
+
+
+
+
+
 
