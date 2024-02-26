@@ -6,7 +6,6 @@
 7 layers of communication. Important ones:
 1. Application Layer : HTTP
 2. Transport Layer : TCP
-
 > Application Layer
 
 **Client Server Protocol:**
@@ -206,6 +205,14 @@ Two types:
 
 
 source : https://youtu.be/rExh5cPMZcI?si=n9FejS8rNdHguw31
+
+# High Level Design
+## Design a URL Shortner
+
+**Requirement**
+
+A URL shortner should be able to generate shorter URL for a long URL.
+Also, the application should be able to retrieve longer version URL from the shorter URL (happens when you click the shorter URL).
 
 
 # Low Level Design
