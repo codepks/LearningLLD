@@ -214,7 +214,7 @@ source : https://youtu.be/rExh5cPMZcI?si=n9FejS8rNdHguw31
 A URL shortner should be able to generate shorter URL for a long URL.
 Also, the application should be able to retrieve longer version URL from the shorter URL (happens when you click the shorter URL).
 
-**Question** <br>
+**Question 1**<br>
 How much shorter should our url be? 7 letter or 8 letters?
 
 **Answer**<br>
@@ -224,9 +224,20 @@ Let's assume it to be 1 million users per day. That means 365 million requests p
 If our url expires after 10 years then it would be 3650 million requests over 10 years.
 So our URL shortening word should be able to suffice us with minimum 3.65 billion combinations.
 
-
-Now, if we go with 7 character long url then there would be 26^7 = 8.03 billion combinations which is sufficient for our case.
+Now, if we go with 7 character(only smallcase alphabets) long url then there would be 26^7 = 8.03 billion combinations which is sufficient for our case.
 So, a 7 character long url would be sufficient for us.
+
+If interviewer says that we can use smallcase(26), uppercase(26) and numbers(10) = 62 characters then combination possibilties would change drastically. IT can give us 3.5 trillion combinations for 7 character long letters.
+
+**Question 2** <br>
+Which algorithm should be used in this case?
+
+**Answer**<br>
+So what are doing here is basically generating hash values and there are different algorithms to do that for us.
+Two ways : 
+1. Using hash function : MD%, SHA-1
+2. Base62 encoding
+
 
 
 
