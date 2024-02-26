@@ -255,6 +255,9 @@ provices upto 3.5 trillion combination for 7 character long code
 
 > Database <br>
 
+Relational db can work here as the system is not very complex.
+It can have this schema:
+long url <--> short url <--> expire time
 **Question** <br>
 The question is how database management happens when it is getting updated by different application servers? We have to make sure we are generating unique id in distributed systems(distributed application servers and db servers).
 
@@ -271,10 +274,14 @@ Methods to deal with this :
       Of 3.5 trilloin combinations, we will divide the database into certain ranges (for e.g. 1 million each) of the given combinations. This will make the application server get allocated their range and avoid duplicacy.
 
     combination range1 ... combination range2... combination range3... combination range4... combination range5... combination range6 ...... combination rangeN
-
+Our application will now talk directly to zookeeper to generate or read the values.
 
 Since the data entries could be in millions, therefore we need to have multiple servers which can be achieved via horizontal sharding.
 To avoid single point failure we need to have backup servers too which can be achieved via master slave concept.
+
+**Cache**
+The read operation i.e. opening of the long url from the short url invokes read function which might be 10x used than the write operation and would be frequent. For this case we need to have cache for those frequently used database entries.
+
 
 
 
