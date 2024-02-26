@@ -446,7 +446,7 @@ Calender
 5. The Application can have Admin Portal too to check the availability of the printers and to check the orders
 
 **Object Oriented Analysis**
-1. We need user and order details in the website to generate the quotation
+1. We need **User** and order details in the website to generate the quotation
    
 ```
 class User
@@ -461,7 +461,7 @@ class User
   } address;
 }
 ```
-2. We need to have the order request object which will have a variable to flag it to be processed or unprocessed
+2. We need to have the **Order-Request** object which will have a variable to flag it to be processed or unprocessed
 
 ```
 class OrderReq
@@ -476,5 +476,34 @@ public:
   int getOrderDuration() {};
 }
 ```
+3. **PrinterClass** : Has printerIndterface and printerType
 
-3. 
+```
+struct Printer
+{
+  int printerId;
+  bool isBusy;
+  time bookedStartTime;
+  time bookedEndTime;
+}
+```
+
+4. **PrinterManager** : Manages the printing job and taken into account the printer's busy schedule.
+
+```
+PrinterManager
+{
+  vector<Printers> lowQualityPrinters;
+  vector<Printers> highQualityPrinters;
+
+public:
+  int getAvailableHQPrinter() {};
+  int getAvailableLQPrinter() {};
+  void blockPrinters()
+}
+```
+
+5. **OrderProcessor** : Takes in the incoming request and updates the duration of the order, converts the order request to processed order.
+
+
+
