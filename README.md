@@ -446,5 +446,35 @@ Calender
 5. The Application can have Admin Portal too to check the availability of the printers and to check the orders
 
 **Object Oriented Analysis**
-1. We need user details in the website to 
+1. We need user and order details in the website to generate the quotation
+   
+```
+class User
+{
+  string userName;
+  int userId;
+  struc Address
+  {
+    string city;
+    int pincode;
+    int flatno;
+  } address;
+}
+```
+2. We need to have the order request object which will have a variable to flag it to be processed or unprocessed
 
+```
+class OrderReq
+{
+  int lowQualityPrints;
+  int highQualityPrints;
+  bool processed;
+  int orderDuration;
+public:
+  bool isProcessed() {};
+  void updateOrderDuration() {};
+  int getOrderDuration() {};
+}
+```
+
+3. 
