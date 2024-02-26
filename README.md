@@ -209,10 +209,29 @@ source : https://youtu.be/rExh5cPMZcI?si=n9FejS8rNdHguw31
 # High Level Design
 ## Design a URL Shortner
 
-**Requirement**
+**Requirement Analysis**
 
 A URL shortner should be able to generate shorter URL for a long URL.
 Also, the application should be able to retrieve longer version URL from the shorter URL (happens when you click the shorter URL).
+
+**Question** 
+How much shorter should our url be? 7 letter or 8 letters?
+
+**Answer**
+
+For this we need to understand the traffic first.
+Ask the interviewer over the daily traffic for url shortening request.
+Let's assume it to be 1 million users per day. That means 365 million requests per year.
+If our url expires after 10 years then it would be 3650 million requests over 10 years.
+So our URL shortening word should be able to suffice us with minimum 3.65 billion combinations.
+
+
+Now, if we go with 7 character long url then there would be 26^7 = 8.03 billion combinations which is sufficient for our case.
+So, a 7 character long url would be sufficient for us.
+
+
+
+
 
 
 # Low Level Design
