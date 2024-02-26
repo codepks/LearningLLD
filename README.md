@@ -215,6 +215,7 @@ A URL shortner should be able to generate shorter URL for a long URL.
 Also, the application should be able to retrieve longer version URL from the shorter URL (happens when you click the shorter URL).
 
 **Question** 
+
 How much shorter should our url be? 7 letter or 8 letters?
 
 **Answer**
