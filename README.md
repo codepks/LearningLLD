@@ -308,6 +308,7 @@ Elements to work with
 
 **Problem Statement**
 Design a Meeting Scheduler where you need to book a meeting room for a given time period for given attendees(optional) and block the room in room's calender.
+Make the design scalable to open the scope for further development.
 
 **Process Flow**
 1. A user enters given time and day and capacity of a meeting in a meeting scheduler
@@ -315,6 +316,79 @@ Design a Meeting Scheduler where you need to book a meeting room for a given tim
 3. User choses the room being dummy in nature with properties like location and capacity gets choses by Meeting Scheduler and blocks the room in the meeting room calender.
 
 
+**Object Oriented Analysis**
+1. **User** class with company id and name as properties. This is public to company. We can make company id as protected member. 
+
+```
+struct User
+{
+  string name;
+protected:
+  int company_id;
+
+User(string iName, int iCompany_id) : name(iName), company_id(iCompany_id) {};
+};
+```
+
+2. **MeetingRoom** : They will have properties like capacity, Location 
+
+```
+struct MeetingRoom
+{
+	int capacity;
+	struct Location
+	{
+		int floorNo;
+		int roomNo;
+		Location(int iFloorNo, int iRoomNo) : floorNo(iFloorNo), roomNo(iRoomNo) {};
+	} location;
+
+	MeetingRoom(Location iLocation, int iCapacity) : location(iLocation), capacity(iCapacity) {};
+};
+
+//initiliazed like
+MeetingRoom obj{ {19,03},5};
+```
+3. **Calender** : This calender datastructure would be part of MeetingRooms which will hold the booking data. Its usage can be extended to users too.
+
+```
+class Calender
+{
+  int date;
+  time startTime;
+  time endTime;
+
+public:
+  void setDate() {};
+  void setStartandEndTime() {};
+
+  int getDate() {};
+  time getStartTime() {};
+  time getEndTime() {};
+}
+```
+
+4. **SmartRoom** : A smartRoom uses MeetingRoom class and Calender class and has the functionality of availability.
+
+```
+
+```
+
+4. **MeetingRoomManager** : This is the smarter version of dummy meeting rooms which manages them and returns the list of meeting rooms based on request. It will compose of list of MeetingRoom object, Calender Object.
+Functionalities : Should give me list of rooms when queried for rooms with given capacity and time slots.
+
+```
+MeetingRoomManager
+{
+  list<MeetingRoom> roomList;
+  Calender bookingTime;
+
+
+}
+```
+
+
+5. 
 
 
 
