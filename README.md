@@ -268,7 +268,7 @@ Methods to deal with this :
      *Distributed application can coordinate with each other reliably. The method is able to generate unique ids in distributed envrionment*
       Of 3.5 trilloin combinations, we will divide the database into certain ranges (for e.g. 1 million each) of the given combinations. This will make the application server get allocated their range and avoid duplicacy.
 
-    <combination range1> ... <combination range2>... <combination range3>... <combination range4>... <combination range5>... <combination range6> ...... <combination rangeN>
+    combination range1 ... combination range2... combination range3... combination range4... combination range5... combination range6 ...... combination rangeN
 
 
 Since the data entries could be in millions, therefore we need to have multiple servers which can be achieved via horizontal sharding.
