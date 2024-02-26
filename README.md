@@ -430,4 +430,21 @@ Calender
 }
 ```
 
+## Design an Online Printer Website
+
+**Problem Statement** 
+1. User want to get some print-outs which includes set of low quality and high quality prints
+2. He requests quotation from the Printer's website entering the number of low quality and high quality prints to get the price quotation along with the delivery date and time
+3. If user is okay with the time taken then he is proceed further to place the request by payment
+4. The Printer's shop consists of m HQ printers and n LQ printers. They take the order and optimize the job by putting maximum printers on work and block the printers as per calculated time
+
+**High Level Design**
+1. Since this is not a data intesive job, there by only few application servers can do the job with each server having x users handling capacity at a time
+2. The other servers can also servers can also serve as backup servers. The traffic deviation in case of one server's power outtage can be handled by a Load Balancer
+3. Again, since the job is not data intensive we will have few database servers, in this case one Master database and one Slave database. We will write to Master database, it will be replicated to Slave database. In case of Master server's outtage, the slave Server will turn into the Master database.
+4. In this design we do not require any Cache system too as there woulnd't me much traffic at a time
+5. The Application can have Admin Portal too to check the availability of the printers and to check the orders
+
+**Object Oriented Analysis**
+1. We need user details in the website to 
 
