@@ -314,6 +314,7 @@ Make the design scalable to open the scope for further development.
 1. A user enters given time and day and capacity of a meeting in a meeting scheduler
 2. Meeting Scheduler talks to Meeting Room manager holding the properties of different rooms and return the list of rooms accordingly
 3. User choses the room being dummy in nature with properties like location and capacity gets choses by Meeting Scheduler and blocks the room in the meeting room calender.
+4. Notify the users
 
 
 **Object Oriented Analysis**
@@ -335,24 +336,24 @@ User(string iName, int iCompany_id) : name(iName), company_id(iCompany_id) {};
 ```
 struct MeetingRoom
 {
-	int capacity;
-	struct Location
-	{
-		int floorNo;
-		int roomNo;
-		Location(int iFloorNo, int iRoomNo) : floorNo(iFloorNo), roomNo(iRoomNo) {};
-	} location;
+  int capacity;
+  struct Location
+  {
+    int floorNo;
+    int roomNo;
+    Location(int iFloorNo, int iRoomNo) : floorNo(iFloorNo), roomNo(iRoomNo) {};
+  } location;
 
-	MeetingRoom(Location iLocation, int iCapacity) : location(iLocation), capacity(iCapacity) {};
+  MeetingRoom(Location iLocation, int iCapacity) : location(iLocation), capacity(iCapacity) {};
 };
 
 //initiliazed like
 MeetingRoom obj{ {19,03},5};
 ```
-3. **Calender** : This calender datastructure would be part of MeetingRooms which will hold the booking data. Its usage can be extended to users too.
+3. **BookingTime** : This calender datastructure would be part of MeetingRooms which will hold the booking data. Its usage can be extended to users too.
 
 ```
-class Calender
+class BookingTime
 {
   int date;
   time startTime;
@@ -373,26 +374,60 @@ public:
 class SmartRoom
 {
   MeetingRoom room;
-  Calender bookingTime;
+  list<BookingTime> bookingTimes = BookingTime();
 public:
   book isAvailable(time startTime, time endTime) {};
 }
 
 
-4. **MeetingRoomManager** : This is the smarter version of dummy meeting rooms which manages them and returns the list of meeting rooms based on request. It will compose of list of MeetingRoom object, Calender Object.
-Functionalities : Should give me list of rooms when queried for rooms with given capacity and time slots.
+4. **MeetingRoomManager** : This is a singleton class as there wouldn't be multiple managers, also making it thread safe. This is the smarter version of dummy meeting rooms which manages them and returns the list of meeting rooms based on request. It will compose of list of MeetingRoom object, Calender Object.
+*Functionalities* : Should give me list of rooms when queried for rooms with given capacity and time slots.
 
 ```
 MeetingRoomManager
 {
-  list<SmartRoom> roomList;
-	
+  list<SmartRoom> roomList;//to be initialized with the list
+
+public:
+  list<SmartRoom> getListOfAvailableRoom(time startTime, time endTime, int capacity)
+	{ //check through list for isAvailable()}
+  void block
 }
 ```
 
+5. **Meeting** : A unique id of the meeting along with room details, and users involved will be availble here
+   
+```
+class Meeting
+{
+  int id;
+  list<User> userList;
+  MeetingRoom bookeRoom;  
+}
+```
 
-5. 
+6. **Meeting Scheduler** : It is a singleton class. Should book the meetings and block the room for unavailability.
 
+```
+MeetingScheduler
+{
+  MeetingRoomManager manager;
+  Meeting id = NULL;
+  list<Users> userList;
+  public:
+  list<SmartRoom> getRoomList(time startTime, time endTime, int capacity) {};
+  Meeting blockTheRoom(SmartRoom, time startTime, time endTime) {//Returns meeting object};
+  void NotifyUsers(list<User> userList) {// notify id.usersList}
+}
+```
 
+7. **Calender** : This is a different application which will stick to individual rooms and display a room's data-wise availability;
+
+```
+Calender
+{
+  //TODO - need to discuss with the client on its requirement
+}
+```
 
 
