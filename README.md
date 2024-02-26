@@ -235,12 +235,26 @@ Which algorithm should be used in this case?
 **Answer**<br>
 So what are doing here is basically generating hash values and there are different algorithms to do that for us.
 Two ways : 
-1. Using hash function : MD%, SHA-1
+1. Using hash function : MD5, SHA-1
 2. Base62 encoding
 
+> Hash Generator <br>
 
+MD5 : Generates characted length of 32 character but our requirement is only 7 character lenth
+SHA-1 : It will generate a 40 character length but requirement is only 7 character length
 
+Althoug we can trim, but there is a possibility that initial 7 characters might be same for many strings.
+So Hash generator wouldn't be an appropriate choice.
 
+> Base62 <br>
+
+It converts decimal to base62 value.
+It takes a-z(26), A-Z(26), 0-1 (10) = 62 unique characters
+
+> Database <br>
+
+Since the data entries could be in millions, therefore we need to have multiple servers which can be achieved via sharding.
+To avoid single point failure we need to have backup servers too which can be achieved via master slave concept.
 
 
 
