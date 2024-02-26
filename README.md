@@ -488,7 +488,7 @@ struct Printer
 }
 ```
 
-4. **PrinterManager** : Manages the printing job and taken into account the printer's busy schedule.
+4. **PrinterManager** : It is a singleton class. Manages the printing job and taken into account the printer's busy schedule.
 
 ```
 PrinterManager
@@ -497,9 +497,11 @@ PrinterManager
   vector<Printers> highQualityPrinters;
 
 public:
-  int getAvailableHQPrinter() {};
-  int getAvailableLQPrinter() {};
-  void blockPrinters()
+  int getAvailableHQPrinters() {};
+  int getAvailableLQPrinters() {};
+
+  void setBusyHQPrinters() {};
+  void setBusyLQPrinters() {};
 }
 ```
 
