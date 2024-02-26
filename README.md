@@ -254,9 +254,23 @@ It takes a-z(26), A-Z(26), 0-1 (10) = 62 unique characters
 > Database <br>
 
 **Question** <br>
-The question is how data base is getting updated by different application servers?
+The question is how database management happens when it is getting updated by different application servers? We have to make sure we are generating unique id in distributed systems.
 
 **Answer** <br>
+Problems : 
+1. Single db server is difficult to scale
+2. Multiple db servers are difficult to synchronize
+3. *Ticket Server* : Centralized autoincrement service. Having once common databse server which will be updated by multiple appliation server. But this is a single point failure design
+
+Methods to deal with this :
+1. *Snowflake* : Having multiple db servers with 41 bit metadata attached to data. 1 bit reserved, few bits on Timestamp, few bits on machine id  (basically which machine is writing data), followed by sequence number. So now if two machines try to write at the same type then at least their machine id would be different.
+2. *Zookeeper* :
+     *Distributed application can coordinate with each other reliably. The method is able to generate unique ids in distributed envrionment*
+      Of 3.5 trilloin combinations, we will divide the database into certain ranges (for e.g. 1 million each) of the given combinations. This will make the application server get allocated their range and avoid duplicacy.
+
+    <combination range1> ... <combination range2>... <combination range3>... <combination range4>... <combination range5>... <combination range6> ...... <combination rangeN>
+
+
 Since the data entries could be in millions, therefore we need to have multiple servers which can be achieved via horizontal sharding.
 To avoid single point failure we need to have backup servers too which can be achieved via master slave concept.
 
