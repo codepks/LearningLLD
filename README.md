@@ -254,7 +254,7 @@ It takes a-z(26), A-Z(26), 0-1 (10) = 62 unique characters
 > Database <br>
 
 **Question** <br>
-The question is how database management happens when it is getting updated by different application servers? We have to make sure we are generating unique id in distributed systems.
+The question is how database management happens when it is getting updated by different application servers? We have to make sure we are generating unique id in distributed systems(distributed application servers and db servers).
 
 **Answer** <br>
 Problems : 
