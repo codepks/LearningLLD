@@ -251,6 +251,8 @@ So Hash generator wouldn't be an appropriate choice.
 It converts decimal to base62 value.
 It takes a-z(26), A-Z(26), 0-1 (10) = 62 unique characters
 
+provices upto 3.5 trillion combination for 7 character long code
+
 > Database <br>
 
 **Question** <br>
