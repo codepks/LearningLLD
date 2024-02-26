@@ -368,11 +368,16 @@ public:
 }
 ```
 
-4. **SmartRoom** : A smartRoom uses MeetingRoom class and Calender class and has the functionality of availability.
+4. **SmartRoom** : A smartRoom uses MeetingRoom class and Calender class and has the functionality of availability. Similar functionality can be extended to users too.
 
-```
+class SmartRoom
+{
+  MeetingRoom room;
+  Calender bookingTime;
+public:
+  book isAvailable(time startTime, time endTime) {};
+}
 
-```
 
 4. **MeetingRoomManager** : This is the smarter version of dummy meeting rooms which manages them and returns the list of meeting rooms based on request. It will compose of list of MeetingRoom object, Calender Object.
 Functionalities : Should give me list of rooms when queried for rooms with given capacity and time slots.
@@ -380,10 +385,8 @@ Functionalities : Should give me list of rooms when queried for rooms with given
 ```
 MeetingRoomManager
 {
-  list<MeetingRoom> roomList;
-  Calender bookingTime;
-
-
+  list<SmartRoom> roomList;
+	
 }
 ```
 
