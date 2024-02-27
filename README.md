@@ -601,3 +601,10 @@ public:
 Two kinds of queries: Find list of trains in a particular range and getting schdule of a train with a given train id.
 
 
+4. **Seat booking** : There n seats and n tokens. We need to list the seats availability in between stations.
+Lock the seat name and decremenet the seat availability. Either allot seat later or do it alloting on the go.
+
+5. **Ticket** : Mentions train, user and seat name
+
+The system is too complex to complete in a day
+
