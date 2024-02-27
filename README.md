@@ -565,5 +565,14 @@ public:
 ```
    
 
+## IRCTC System Design
+
+Flow:
+1. Search for start and stop destination
+2. Get list of trains and their timing details
+3. One should be able to book a single seat or multiple seat in a given train
+4. 3 months advance booking allowed
+
+   Train route : (stopName, time) 
 
 
