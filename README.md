@@ -663,7 +663,21 @@ public:
 ```
 
    
-2. **City** : enums
+2. **Search Engine** : Utilises catalog. Search by title, genere, lanugage, city etc. A singleton class.
+
+```
+class SearchEngine
+{
+  Catalog catalog;
+
+  list<Movie> getMovieListByGenre(Genre genre);
+  list<Movie> getMovieListByLanugage(Language lang);
+  list<Movie> getMovieListByCity(City city);
+}
+```
+
+
+3. **City** : enums
 
 ```
 enum City
@@ -760,13 +774,26 @@ public:
 }
 ```
 
-6. **BookingManager** : A singleton class
+6. **Catalaog** : This is for filteration purpose of movies based on language, gener and the last refresh date. 
+
+```
+class Catalog
+{
+  map<Genre, list<Movie>> genreMovies;
+  map<Language, list<Movie>> languageMovies;
+  map<ReleaseDates, list<Movie>> releaseMovies;
+  map<City, list<Movie>> cityBasedMovies;
+
+public:
+  void fetchValuesFromDataBase();
+}
+```
+
+7. **BookingManager** : A singleton class
 
 ```
 BookingManager
 {
- list<Movie> getMovieListByCity(City cityname) {};
- list<Movie> getMovieListByTheatre(Threatre threare) {}'
  void bookSelectedSeatsInaThreatre() {};
  void makePayment() {};
 }
@@ -782,7 +809,27 @@ class ProcessPayment
 }
 ```
 
-8. **Notification** 
+8. **Admin** : This is the one that makes the first of the list. A singleton class.
+
+```
+class Admin
+{
+  list<Movie> movieList;
+  list<UserList> userList;
+  list<Genre> genreList();
+
+ public:
+  void AddMovie();
+  void AddUser();
+  void AddTheathres();
+  void AddCities();
+
+public:
+
+  void writeIntoDataBae();
+}
+```
+9. **Notification** 
 
 ```
 enum NotificationType
@@ -803,6 +850,16 @@ public:
   void setNotificationType() {};
   void sendNotification(list<User> users) {};
 }
+
+class EmainNotify : public Notification
+{
+
+}
+
+class SMSNotification : public Notification
+{
+
+}
 ```
 
 **Implementation**
@@ -810,7 +867,20 @@ public:
 ```
 int main()
 {
-  
+
+  Admin &admin = Admin::getAdminObject();
+  admin.addMovies();
+  admin.addCities();
+  admin.addGeneres();
+  admin.writeTodataBase();
+
+  //Searching for movie
+  User user {//details}; //taken in from UI
+  SearchEngine searchEngine ()
+
+  BookingManager &mgr = BookingManager::getBookingManager();
+
+  mgr
 }
 
 ```
