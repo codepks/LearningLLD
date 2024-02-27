@@ -598,6 +598,6 @@ public:
 3. **Searching** :
 **StartTime and Endtime** : A person puts in starttime and endtime so we will query from the database for EDT post starttime and ADT before endtime.
 **Source and Destination** We might need to use BFS as nodes(sources/destinations) are connected other sources and destinations.
- 
+Two kinds of queries: Find list of trains in a particular range and getting schdule of a train with a given train id.
 
 
