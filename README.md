@@ -608,7 +608,7 @@ Lock the seat name and decremenet the seat availability. Either allot seat later
 
 The system is too complex to complete in a day
 
-## Bookmyshow
+## Bookmyshow - incomplete
 
 source : https://youtu.be/CC7DwkQOsS0?si=CmpZUDrFCQlpSNbk
 **Flow**
@@ -889,7 +889,7 @@ int main()
 
 ```
 
-## Vending Machine
+## Vending Machine - Incomplete
 source : https://youtu.be/wOXs5Z_z0Ew?si=8qS1G07wj9WOduwc
 **Flow**
 
@@ -912,3 +912,38 @@ State Interface would have all the operations as pure virtual functions.
 Now depending upon the usage State1 would only required operations and throw error on others.
 
 Our vending machine utilizes this state interface.
+
+
+## Elevator Design Pattern - incomplete
+
+Elevator has 3 states : idle, up or down. We can use state design pattern here
+Transfers passengers from one floor to another
+Opens door only when idle.
+Target : minimize cost and maximize speed
+
+**Classes**
+1. Elevator class would have : max load it can take, max speed , Move(destination floor), stop()
+2. Floors : int floorNo
+3. Button panel - up and down panel + floor number panel
+4. Scheduler
+5. Elevator System
+6. Monitoring System
+7. Door : isOpen(), isClosed()
+
+
+
+4 states elevator is in : 
+1. Idle
+2. Moving in the same direction as passenger wants to go
+3. Moving in the opposite direction as passenger wants to go - not used
+4. Moving away from passenger's pressed direction - not used
+
+Algorithm Used:
+We will use a boolean array and check which floor is set to true, we reach there and set it to false.
+While setting it to false if system does not see any other updates in of the variable change ahead in the direction of the movement then it will stop there.
+
+   
+
+
+
+
