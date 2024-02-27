@@ -610,6 +610,7 @@ The system is too complex to complete in a day
 
 ## Bookmyshow
 
+source : https://youtu.be/CC7DwkQOsS0?si=CmpZUDrFCQlpSNbk
 **Flow**
 1. User should be able to book in the current city
 2. Should be able to book for the given movie with my choice of timing
@@ -883,7 +884,14 @@ int main()
 
   BookingManager &mgr = BookingManager::getBookingManager();
 
-  mgr
+  
 }
 
 ```
+
+## Vending Machine
+source : https://youtu.be/wOXs5Z_z0Ew?si=8qS1G07wj9WOduwc
+**Flow**
+(Idle) <--Push Money Button--> (Push Money State - Keep pushing money) <--Select Product State--> (Selection State - keep chosing products) <---Cancel---> (Idle)
+
+We can go to idle state even after pushing money and cancelling for refund.
