@@ -879,7 +879,7 @@ int main()
   SearchEngine &searchEngine = SearchEngine::getSearchEngine();
   
 
-searchEngine.
+  searchEngine.
 
   BookingManager &mgr = BookingManager::getBookingManager();
 
