@@ -902,3 +902,13 @@ We can go to idle state even after pushing money and cancelling for refund.
 2) HasMoney State -> Insert Coin, Select Product button, cancel refund button -> Transitions to Selection State
 3) Selection State -> Chose the product, cancel or refund, return the change -> Transitions to Dispensing State
 4) Dispensing State -> Product Dispense -> Transitions to Idle state
+
+
+**State Interface**
+State1 , State2, State3 inherits from the State interface
+
+State Interface would have all the operations as pure virtual functions.
+
+Now depending upon the usage State1 would only required operations and throw error on others.
+
+Our vending machine utilizes this state interface.
