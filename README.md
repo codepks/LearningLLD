@@ -876,7 +876,10 @@ int main()
 
   //Searching for movie
   User user {//details}; //taken in from UI
-  SearchEngine searchEngine ()
+  SearchEngine &searchEngine = SearchEngine::getSearchEngine();
+  
+
+searchEngine.
 
   BookingManager &mgr = BookingManager::getBookingManager();
 
