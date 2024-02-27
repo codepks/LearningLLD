@@ -892,6 +892,13 @@ int main()
 ## Vending Machine
 source : https://youtu.be/wOXs5Z_z0Ew?si=8qS1G07wj9WOduwc
 **Flow**
+
 (Idle) <--Push Money Button--> (Push Money State - Keep pushing money) <--Select Product State--> (Selection State - keep chosing products) <---Cancel---> (Idle)
 
 We can go to idle state even after pushing money and cancelling for refund.
+
+**State and Operations** : Link states to operations
+1) Idle State-> Press Insert Cash button -> Transitions to HasMoneyState
+2) HasMoney State -> Insert Coin, Select Product button, cancel refund button -> Transitions to Selection State
+3) Selection State -> Chose the product, cancel or refund, return the change -> Transitions to Dispensing State
+4) Dispensing State -> Product Dispense -> Transitions to Idle state
