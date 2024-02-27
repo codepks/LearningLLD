@@ -654,6 +654,11 @@ User
 
   string emailId;
   string passwordhashvalue;
+
+ string notificationMessage; //for app display
+
+public:
+  void getNotificationMessage();
 }
 ```
 
@@ -673,19 +678,139 @@ enum City
 3. **Movie** : movie id, movieName, movieLanguage, movieGenre, int threatre ID, bool MovieAvailability
 
 ```
+class enum Genre
+{
+ Action,
+ Thiller,
+ Comedy,
+ Romantic
+}
 
+class enum Language
+{
+  Hindi,
+  Tamil,
+  Kannada,
+  Marathi,
+  Malyalam,
+  Telugu
+}
+
+Movie
+{
+  string movieName;
+  Genre movieGenre;
+  float movieRating;
+  Language movieLanguage
+}
 ```
 
-4. **Theatre** : theatre id, theatreName, address, List<Movie>
+4. **Halls** : PreiumSeats, Economy Seats. We can provide the arrangement in json format
+```
+class Halls
+{
+  int PremiumSeats;
+  int EconomySeats;
+  int hallID;
+  map<Movie, timing> mp;
 
+public:
+  void updateMovieTimeTable() {};
+}
+```
 
-5. **Booking** : bookingId, userId, movieId, bookedSeats, amount, statusOfPayment, bookedData, MovieTime
+5. **Theatre** : theatre id, theatreName, address, List<Movie>
 
-6. **Ticket**
+```
+class Threatre
+{
+  list<Halls> hallList;
+  struct Address {string street;};
 
-7. **Payment**
+public:
+  list<Movie> getListofMoviesFromTheatre() {};
+  
+} 
+```
+
+5. **Ticket** : bookingId, userId, movieId, bookedSeats, amount, statusOfPayment, bookedData, MovieTime
+
+```
+class enum BookingStatus
+{
+  booked,
+  cancelled,
+  pending
+}
+class Booking
+{
+  int bookingId;
+  User bookingUser;
+  Movie bookedMovie;
+  float amount;
+  BookingStatus status;
+  time bookedTime;
+  Theatre bookedTheatre;
+  Hall bookedHall;
+
+public:
+
+  void UpdateBookingStatus() {};
+  
+}
+```
+
+6. **BookingManager** : A singleton class
+
+```
+BookingManager
+{
+ list<Movie> getMovieListByCity(City cityname) {};
+ list<Movie> getMovieListByTheatre(Threatre threare) {}'
+ void bookSelectedSeatsInaThreatre() {};
+ void makePayment() {};
+}
+```
+7. **Payment** : apply solid priciples to optimize it which shoul dbe done at the end
+
+```
+class ProcessPayment
+{
+  void creditCardPay() {};
+  void walletPay() {};
+  void UPIPay(){};
+}
+```
 
 8. **Notification** 
 
+```
+enum NotificationType
+{
+  BookingConfirmation,
+  BookingCancellation,
+  Reminder
+}
 
 
+class Notification
+{
+  User receiptUser;
+  string Message;
+  time timeStamp;
+
+public:
+  void setNotificationType() {};
+  void sendNotification(list<User> users) {};
+}
+```
+
+**Implementation**
+
+```
+int main()
+{
+  
+}
+
+```
