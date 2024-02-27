@@ -613,24 +613,18 @@ The system is too complex to complete in a day
 **Flow**
 1. User should be able to book in the current city
 2. Should be able to book for the given movie with my choice of timing
-3. The app should show the list of nearby threatres
-4. Should be able to see the seats and book it
+3. System searches as per requirement
+4. The app should show the list of nearby threatres
+5. Should be able to see the seats and book it
+6. Ask customer to pay via different payment methods
+7. Mark booking
+8. Send notification with booking ticket and details
 
 **Other considerations**
 1. System should handle concurrency : Multiple people might try to book same seats
 2. System shoudl be secure
 3. Database should handle transactions and unstructured data
 
-**APIs in Support**
-1. getCities
-2. getTheaterByCity
-3. getMoviewByThreatre
-4. getAudiotoriumByMovie
-5. getShowByAuditorium
-6. getAvailableSeatByRows
-7. bookSeat
-8. sendTicketByMainorSMS
-9. postCommentandReviews
 
 ![image](https://github.com/codepks/LearningLLD/assets/17923311/1b2afb83-0c47-473f-b055-2b8e37077ba2)
 
@@ -641,11 +635,57 @@ User <--> LoadBalancer <--> n Application Servers <--> Cache <Database>
 **Concurrency** 
 The first user with a seat requirement will be locked for the choice and it will be timedout after sometime till the payment is done.
 
-**Classes**
-1. **User Class** : userId, name, dateOfBirth, mobNo, emailId, sex
-2. **Movie** : movie id, movieName, movieLanguage, movieGenre, int threatre ID, bool MovieAvailability
-3. **Theatre** : theatre id, theatreName, address, List<Movie>
-4. **Booking** : bookingId, userId, movieId, bookedSeats, amount, statusOfPayment, bookedData, MovieTime
+**Classes and Uses Cases**
+1. **User Class/Fontdesk officer/Admin** : userId, name, dateOfBirth, mobNo, emailId, sex
+   **Use Cases for a User** : 1. Search Moview with a given filer, Create a booking, Make Payment, View Booking, cancel Booking
+   **Use Cases for Admin** : CRUD of movie, CRUD of show, CRUD of cinemas, CRUD of city
+
+```
+User
+{
+  string name;
+  int userId;
+  struct Address
+  {
+    int flatNo;
+    string Street;
+    int pincode;
+  } address;
+
+  string emailId;
+  string passwordhashvalue;
+}
+```
+
+   
+2. **City** : enums
+
+```
+enum City
+{
+  Pune,
+  Chennai,
+  Bangalore,
+  Mumbai
+}
+```
+
+3. **Movie** : movie id, movieName, movieLanguage, movieGenre, int threatre ID, bool MovieAvailability
+
+```
+
+```
+
+4. **Theatre** : theatre id, theatreName, address, List<Movie>
+
+
+5. **Booking** : bookingId, userId, movieId, bookedSeats, amount, statusOfPayment, bookedData, MovieTime
+
+6. **Ticket**
+
+7. **Payment**
+
+8. **Notification** 
 
 
 
