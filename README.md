@@ -470,19 +470,20 @@ class User
 2. We need to have the **Order-Request** object which will have a variable to flag it to be processed or unprocessed
 
 ```
-class OrderReq
-{
-  int OrderID;
-  int lowQualityPrints;
-  int highQualityPrints;
-  bool processed;
-  int orderDuration;
+class Order {
 public:
-  bool isProcessed() {};
-  void updateOrderDuration() {};
-  int getOrderDuration() {};
-  int getOrderID() {};
-}
+  int id;
+  int num_high_quality_prints;
+  int num_low_quality_prints;
+  bool processed = false;
+  Time order_placed_time;
+  Time estimated_completion_time;
+
+  // Function to calculate estimated completion time based on printer availability and print times
+  void calculate_estimated_completion_time();
+
+  // Other functions like update database with order details, etc. (Implement based on your needs)
+};
 ```
 3. **PrinterClass** : Has printer Interface and printerType
 
@@ -499,36 +500,68 @@ struct Printer
 4. **PrinterManager** : It is a singleton class. Manages the printing job and taken into account the printer's busy schedule.
 
 ```
-PrinterManager
-{
-  vector<Printers> lowQualityPrinters;
-  vector<Printers> highQualityPrinters;
+class PrinterManager {
+private:
+  vector<Printer> low_quality_printers;
+  vector<Printer> high_quality_printers;
+  int total_high_quality_printers;
+  int total_low_quality_printers;
+  int high_quality_print_time; // in minutes
+  int low_quality_print_time;  // in minutes
 
 public:
-  int getAvailableHQPrinters() {};
-  int getAvailableLQPrinters() {};
+  PrinterManager(int total_lq_printers, int total_hq_printers, int hq_print_time, int lq_print_time)
+      : total_low_quality_printers(total_lq_printers),
+        total_high_quality_printers(total_hq_printers),
+        high_quality_print_time(hq_print_time),
+        low_quality_print_time(lq_print_time) {}
 
-  void setBusyHQPrinters() {};
-  void setBusyLQPrinters() {};
-}
+  int get_available_high_quality_printers();
+  int get_available_low_quality_printers();
+
 ```
 
 5. **OrderProcessor** : Takes in the incoming request and updates the duration of the order, converts the order request to processed order.
 
 ```
-class OrderProcessor
-{
-  OrderReq orderReq;
-  void updateDataBaseWithOrderDetails();  
-}
+class OrderProcessor {
+private:
+  PrinterManager* printer_manager;
+
+public:
+  OrderProcessor(PrinterManager* manager) : printer_manager(manager) {}
+  void process_order(Order& order); // Function to process an order
+  // Other functions for database interaction and notification (Implement based on your needs)
+};
 ```
 
 6. **Main Operation**
 
 ```
-//Enter the details to get quotation
-User user1;
-user
+// User details
+  User user;
+  user.name = "Prashant";
+  user.id = 232;
+  user.address = "Pune, 411057, 1903";
+
+  // Order details
+  Order order;
+  order.id = 1; // Generate actual order ID here
+  order.num_high_quality_prints = 6;
+  order.num_low_quality_prints = 4;
+  order.order_placed_time.set_current_time(); // Set current time when order is placed
+
+  // Order processing
+  PrinterManager printer_manager(12, 8, 5, 3); // Initialize with printer details
+  OrderProcessor order_processor(&printer_manager);
+
+  if (order.processed) {
+    order_processor.process_order(order);
+
+    // Update database with order details, estimated completion time, etc. (Implement based on your needs)
+  }
+
+  return 0;
 ```
    
 
