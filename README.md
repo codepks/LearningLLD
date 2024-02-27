@@ -445,6 +445,12 @@ Calender
 4. In this design we do not require any Cache system too as there woulnd't me much traffic at a time
 5. The Application can have Admin Portal too to check the availability of the printers and to check the orders
 
+**Quotation Generation**
+Our quotation generation depends upon the status of printers and depends upon these factors:
+1. If printers are fully available : Easy to estimate
+2. If printers are partially available : Check how printers are getting free with time to put them on job 
+3. If none of the printers are available : Check when they would be available to put them on job
+
 **Object Oriented Analysis**
 1. We need **User** and order details in the website to generate the quotation
    
@@ -466,6 +472,7 @@ class User
 ```
 class OrderReq
 {
+  int OrderID;
   int lowQualityPrints;
   int highQualityPrints;
   bool processed;
@@ -474,9 +481,10 @@ public:
   bool isProcessed() {};
   void updateOrderDuration() {};
   int getOrderDuration() {};
+  int getOrderID() {};
 }
 ```
-3. **PrinterClass** : Has printerIndterface and printerType
+3. **PrinterClass** : Has printer Interface and printerType
 
 ```
 struct Printer
@@ -506,6 +514,23 @@ public:
 ```
 
 5. **OrderProcessor** : Takes in the incoming request and updates the duration of the order, converts the order request to processed order.
+
+```
+class OrderProcessor
+{
+  OrderReq orderReq;
+  void updateDataBaseWithOrderDetails();  
+}
+```
+
+6. **Main Operation**
+
+```
+//Enter the details to get quotation
+User user1;
+user
+```
+   
 
 
 
