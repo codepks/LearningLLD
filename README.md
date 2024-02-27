@@ -567,12 +567,33 @@ public:
 
 ## IRCTC System Design
 
-Flow:
+**Flow**
 1. Search for start and stop destination
 2. Get list of trains and their timing details
 3. One should be able to book a single seat or multiple seat in a given train
-4. 3 months advance booking allowed
+4. In case of cancellation or no booking there should be no booking
+   
+**Things to keep in mind**
+1. Train route : (stopName, time)
+2. People should be able to chose seats to book
+3. Handle parallel seat booking
+4. We are not taking care of arrangement of seats as this would take time, for now only amount of seats matter
 
-   Train route : (stopName, time) 
+**Object Oriented Analysis**
+
+1. **Train service** : We need Train ID, no. of seats, seat names
+2. **Schedule** : Train ID, Source, Destination, Est. Dep-Time, Est. Arr-Time. We can store mutliple stops too here.
+
+   			Train ID | Source | Destination | EDT | ADT |
+			---------------------------------------------
+   			|253	 |  A	  |  B		|1 PM | 2 PM|
+			|253	 |  B	  |  C		|2 PM | 3 PM|
+			|253	 |  C	  |  D		|3 PM | 4 PM|
+			|   	 |	  |		|     |     |
+			|   	 |	  |		|     |     |
+			|   	 |	  |		|     |     |
+			---------------------------------------------
+
+4. 
 
 
