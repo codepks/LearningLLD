@@ -578,11 +578,12 @@ public:
 2. People should be able to chose seats to book
 3. Handle parallel seat booking
 4. We are not taking care of arrangement of seats as this would take time, for now only amount of seats matter
+5. We are going with relational database
 
 **Object Oriented Analysis**
 
 1. **Train service** : We need Train ID, no. of seats, seat names
-2. **Schedule** : Train ID, Source, Destination, Est. Dep-Time, Est. Arr-Time. We can store mutliple stops too here.
+2. **Schedule** : Train ID, Source, Destination, Est. Dep-Time, Est. Arr-Time. We can store mutliple stops too here. Supposing 13k trains in a day and 50 destinations per train that means 1.5 million records entries for the table below. We will take sequel data as it is cheaper as well. 150 characters as per the table below makes it 0.1 GB of data hence okay for SQL.
 
    			Train ID | Source | Destination | EDT | ADT |
 			---------------------------------------------
@@ -594,6 +595,9 @@ public:
 			|   	 |	  |		|     |     |
 			---------------------------------------------
 
-4. 
+3. **Searching** :
+**StartTime and Endtime** : A person puts in starttime and endtime so we will query from the database for EDT post starttime and ADT before endtime.
+**Source and Destination** We might need to use BFS as nodes(sources/destinations) are connected other sources and destinations.
+ 
 
 
