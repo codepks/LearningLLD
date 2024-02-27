@@ -608,3 +608,44 @@ Lock the seat name and decremenet the seat availability. Either allot seat later
 
 The system is too complex to complete in a day
 
+## Bookmyshow
+
+**Flow**
+1. User should be able to book in the current city
+2. Should be able to book for the given movie with my choice of timing
+3. The app should show the list of nearby threatres
+4. Should be able to see the seats and book it
+
+**Other considerations**
+1. System should handle concurrency : Multiple people might try to book same seats
+2. System shoudl be secure
+3. Database should handle transactions and unstructured data
+
+**APIs in Support**
+1. getCities
+2. getTheaterByCity
+3. getMoviewByThreatre
+4. getAudiotoriumByMovie
+5. getShowByAuditorium
+6. getAvailableSeatByRows
+7. bookSeat
+8. sendTicketByMainorSMS
+9. postCommentandReviews
+
+![image](https://github.com/codepks/LearningLLD/assets/17923311/1b2afb83-0c47-473f-b055-2b8e37077ba2)
+
+**High Level Desing**
+User <--> LoadBalancer <--> n Application Servers <--> Cache <Database>
+		       <--> n Application Servers <--> 	ThreatreAPI/Database
+
+**Concurrency** 
+The first user with a seat requirement will be locked for the choice and it will be timedout after sometime till the payment is done.
+
+**Classes**
+1. **User Class** : userId, name, dateOfBirth, mobNo, emailId, sex
+2. **Movie** : movie id, movieName, movieLanguage, movieGenre, int threatre ID, bool MovieAvailability
+3. **Theatre** : theatre id, theatreName, address, List<Movie>
+4. **Booking** : bookingId, userId, movieId, bookedSeats, amount, statusOfPayment, bookedData, MovieTime
+
+
+
