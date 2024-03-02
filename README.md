@@ -951,5 +951,71 @@ Pass this is value to an averager and the average value should be dispatched to 
 Steps:
 1. First we will build a temperature simulator system
 
+```
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <queue>
+#include <random>
+#include <chrono>
+#include <future>
 
+class TemperatureSimulator{
+public:
+	std::mutex mtx_;
+	std::queue<double> tempValueBuffer;
+	std::future<void> generationTask;
+
+	void turnOnTheSimulator()	{
+		//! start the temperature value generator engine here that runs on asynchronous thread.
+		generationTask  = std::async(std::launch::async ,&TemperatureSimulator::randomTemperatureValueGenerator, this);
+	}
+
+	double getLatestTempValue()	{
+		std::lock_guard<std::mutex> lg(mtx_);
+		double latestValue = 0;
+		if (!tempValueBuffer.empty())
+		{
+			latestValue = tempValueBuffer.front();
+			tempValueBuffer.pop();
+			return latestValue;
+		}
+		else
+			return latestValue;
+	}
+
+private : 
+	void randomTemperatureValueGenerator()	{
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_real_distribution<> dis(25.0, 27.0);
+
+		while (true) {
+			std::lock_guard<std::mutex> lg(mtx_);
+			double random_value = dis(gen);
+			tempValueBuffer.push(random_value);
+		}
+	}
+
+
+};
+
+int main()
+{
+	TemperatureSimulator* tempSimulatorObject = new TemperatureSimulator();
+	
+	tempSimulatorObject->turnOnTheSimulator();
+
+	std::string answer = "yes";
+	std::cout << "Chose between yes or no" << std::endl;
+	while (answer == "yes")
+	{
+		double latestValue = tempSimulatorObject->getLatestTempValue();
+		std::cout << latestValue << std::endl;
+		std::cin >> answer;
+	}
+
+	tempSimulatorObject->generationTask.get();
+}
+```
 
