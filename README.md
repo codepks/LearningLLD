@@ -991,7 +991,9 @@ private :
 		std::uniform_real_distribution<> dis(25.0, 27.0);
 
 		while (true) {
-			std::lock_guard<std::mutex> lg(mtx_);
+			//this is the apt location for lock_guard as it lock and unlocks here
+			//...for getLatestTempValue() to acquire lock
+			std::lock_guard<std::mutex> lg(mtx_); 
 			double random_value = dis(gen);
 			tempValueBuffer.push(random_value);
 		}
