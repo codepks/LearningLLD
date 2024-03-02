@@ -943,7 +943,13 @@ We will use a boolean array and check which floor is set to true, we reach there
 While setting it to false if system does not see any other updates in of the variable change ahead in the direction of the movement then it will stop there.
 
    
+## Temperature Sensor Averager
 
+Job : The job is to read the temperature from the sensor every second and collect last 10 values.
+Pass this is value to an averager and the average value should be dispatched to other system for display.
+
+Steps:
+1. First we will build a temperature simulator system
 
 
 
