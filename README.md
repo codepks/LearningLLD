@@ -950,6 +950,9 @@ Pass this is value to an averager and the average value should be dispatched to 
 
 Steps:
 1. First we will build a temperature simulator system
+2. Make a class for averaging
+3. Make a client server model to dispatch the values
+4. sync all the function
 
 ```
 #include <iostream>
