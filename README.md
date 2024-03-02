@@ -951,7 +951,7 @@ Pass this is value to an averager and the average value should be dispatched to 
 Steps:
 1. First we will build a temperature simulator system
 2. Make a class for averaging
-3. Make a client server model to dispatch the values
+3. Make a piped connection to the values to the other class
 4. sync all the function
 
 ```
