@@ -951,8 +951,8 @@ Pass this is value to an averager and the average value should be dispatched to 
 Steps:
 1. First we will build a temperature simulator system
 2. Make a class for averaging
-3. Make a piped connection to the values to the other class
-4. sync all the function
+3. Make a class where value would be dispatched 
+4. Make producer and consumer across these three classes
 
 ```
 #include <iostream>
