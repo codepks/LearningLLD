@@ -1073,5 +1073,4 @@ int main()
 1. Unit tests for functional testing
 2. Integration tests for loop testing
 3. CD/CI pipeline like Azure pipeline for dev-ops
-4. Machine Simulator for low cost testing
-5. 
+4. Machine Simulator for low cost testing 
