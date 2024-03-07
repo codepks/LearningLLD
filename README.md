@@ -1,5 +1,3 @@
-# LearningLLD
-
 # Concepts
 ## Networking protocol
 
