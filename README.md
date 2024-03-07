@@ -1061,13 +1061,19 @@ int main()
 4. Handle Concurrency to read health parameters from sensors along with sending commands for procedures
 5. Microservices to Inert chamber, build file selection and 3d printer running
 6. PLC management system
-7. Health parameter management system
-8. Command parameter manament system
-9. database managment system
-10. Report generation in PDF form to give overall build details
-11. There should be a log generation system for dianostics
+7. Build managment system
+8. Health parameter management system
+9. Command parameter manament system
+10. Database managment system
+11. Network configuation system
+12. Login and Authentication System
+13. MVC Architecture
+14. Report generation in PDF form to give overall build details
+15. There should be a log generation system for dianostics
 
 **Code Quality Maintainance**
 1. Unit tests for functional testing
 2. Integration tests for loop testing
 3. CD/CI pipeline like Azure pipeline for dev-ops
+4. Machine Simulator for low cost testing
+5. 
