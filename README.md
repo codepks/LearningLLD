@@ -1026,6 +1026,7 @@ int main()
 
 ## Metal 3D Printer
 
+### FLOW
 **General Flow**
 
 1. Fill the metal powder tank to be used for 3d printing
@@ -1047,8 +1048,26 @@ int main()
 
 **Other Inclusions**
 1. The machine should be able to give us health parameters continously to be displayed over UI for monitoring purpose
-2. There should be a log generation system for dianostics
-3. There should be a calibration system in case of errors introduced due to shipping of machine - lasers
-4. The control software can be installed in either in a workstation or a embedded hardware
-5. Devices like PC, PLC, SPLC, Gas Pump and Powder Pump inverted should be connected via ethernet
-6. There should be a cooling system for laser hardware module
+2. There should be a calibration system in case of errors introduced due to shipping of machine - lasers
+3. The control software can be installed in either in a workstation or a embedded hardware
+4. Devices like PC, PLC, SPLC, Gas Pump and Powder Pump inverted should be connected via ethernet
+5. There should be a cooling system for laser hardware module
+
+### Software Requirements
+
+1. **SQL database** for logging the events - static : for one time changing parameters and dynamic : for continous changing parameters
+2. **JSON** file for configuration
+3. Message Queues ????
+4. Handle Concurrency to read health parameters from sensors along with sending commands for procedures
+5. Microservices to Inert chamber, build file selection and 3d printer running
+6. PLC management system
+7. Health parameter management system
+8. Command parameter manament system
+9. database managment system
+10. Report generation in PDF form to give overall build details
+11. There should be a log generation system for dianostics
+
+**Code Quality Maintainance**
+1. Unit tests for functional testing
+2. Integration tests for loop testing
+3. CD/CI pipeline like Azure pipeline for dev-ops
