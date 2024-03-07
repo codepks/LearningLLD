@@ -1024,3 +1024,22 @@ int main()
 }
 ```
 
+## Metal 3D Printer
+
+**General Flow**
+
+1. Fill the metal powder tank to be used for 3d printing
+2. Start the machine, initializing all the machine parameters, sensors and PLCs and PLC management system
+3. Launch the control software loading the current machine configuration
+4. Verify the PLC and Safety PLC configuration on launch
+5. Inert the chamber with Argon gas until all the oxygen is out
+6. Input a MTT file which has been processed from CAM/CAM files to make it 3D printable
+7. Select the build file to be printed
+8. start the build which periodically spreads the powder and laser sinters the powder
+9. After laser has sintered the powder, one layer has been done and elevator should move down with every layer preparation
+10. The machine should be able to give us health parameters continously to be displayed over UI for monitoring purpose
+11. After all the layers have been sintered, remove the build
+
+**Contigency Flow**
+1. The machine should stop if oxygen level increases in between
+2. There should be alarms raised in case of descr
