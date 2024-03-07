@@ -1037,9 +1037,18 @@ int main()
 7. Select the build file to be printed
 8. start the build which periodically spreads the powder and laser sinters the powder
 9. After laser has sintered the powder, one layer has been done and elevator should move down with every layer preparation
-10. The machine should be able to give us health parameters continously to be displayed over UI for monitoring purpose
-11. After all the layers have been sintered, remove the build
+10. After all the layers have been sintered, remove the build
 
 **Contigency Flow**
 1. The machine should stop if oxygen level increases in between
-2. There should be alarms raised in case of descr
+2. There should be alarms raised in case of descripencies
+3. Alarms should be categorised in low to critical level
+4. In case of critical alarms the process should stop
+
+**Other Inclusions**
+1. The machine should be able to give us health parameters continously to be displayed over UI for monitoring purpose
+2. There should be a log generation system for dianostics
+3. There should be a calibration system in case of errors introduced due to shipping of machine - lasers
+4. The control software can be installed in either in a workstation or a embedded hardware
+5. Devices like PC, PLC, SPLC, Gas Pump and Powder Pump inverted should be connected via ethernet
+6. There should be a cooling system for laser hardware module
